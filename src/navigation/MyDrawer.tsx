@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { TabsNavigator } from './TabsNavigator';
 import { SettingsScreen } from '../screens/SettingsScreen';
 import { colors } from '../theme/stylesGlobal';
+import { PersonScreen } from '../screens/PersonScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -21,6 +22,7 @@ export const MyDrawer = () => {
     >
       <Drawer.Screen name="Tabs" component={TabsNavigator} />
       <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
+      <Drawer.Screen name="PersonScreen" component={PersonScreen} />
     </Drawer.Navigator>
   );
 }
@@ -48,6 +50,14 @@ const MenuDrawerItems = ({ navigation }: DrawerContentComponentProps) => {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigation.navigate('SettingsScreen')}
+        >
+          <Text style={styles.menuTitle}>
+            <Icon name="person-outline" size={20} color={colors.primary} />
+            Persona
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('PersonScreen', { name: 'Deymer' })}
         >
           <Text style={styles.menuTitle}>
             <Icon name="bookmarks-outline" size={20} color={colors.primary} />

@@ -14,6 +14,7 @@ export const PersonScreen = ({ route, navigation }: Props) => {
   }, [])
   return (
     <View style={stylesGlobal.globalMarginHorizontalPage}>
+      <Text style={stylesGlobal.colorText}>Página de Persona</Text>
       <Text style={stylesGlobal.colorText}>El nombre es: {route.params?.name}</Text>
     </View>
   )
