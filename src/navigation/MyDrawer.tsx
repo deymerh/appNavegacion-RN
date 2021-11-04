@@ -1,13 +1,15 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, useWindowDimensions, View } from 'react-native';
 import { createDrawerNavigator, DrawerContentComponentProps, DrawerContentScrollView } from '@react-navigation/drawer';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import { StackNavigation } from './StackNavigation';
+import { TabsNavigator } from './TabsNavigator';
 import { SettingsScreen } from '../screens/SettingsScreen';
+import { colors } from '../theme/stylesGlobal';
 
 const Drawer = createDrawerNavigator();
 
-export default function MyDrawer() {
+export const MyDrawer = () => {
   const { width } = useWindowDimensions();
   return (
     <Drawer.Navigator
@@ -17,7 +19,7 @@ export default function MyDrawer() {
       }}
       drawerContent={(props) => <MenuDrawerItems {...props} />}
     >
-      <Drawer.Screen name="StackNavigator" component={StackNavigation} />
+      <Drawer.Screen name="Tabs" component={TabsNavigator} />
       <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
     </Drawer.Navigator>
   );
@@ -37,14 +39,20 @@ const MenuDrawerItems = ({ navigation }: DrawerContentComponentProps) => {
       <Text style={styles.menuTitle}>Menú</Text>
       <View style={styles.menuItems}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('StackNavigator')}
+          onPress={() => navigation.navigate('Tabs')}
         >
-          <Text style={styles.menuTitle}>Navegación</Text>
+          <Text style={styles.menuTitle}>
+            <Icon name="bandage-outline" size={20} color={colors.primary} />
+            Tabs
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigation.navigate('SettingsScreen')}
         >
-          <Text style={styles.menuTitle}>Ajustes</Text>
+          <Text style={styles.menuTitle}>
+            <Icon name="bookmarks-outline" size={20} color={colors.primary} />
+            Ajustes
+          </Text>
         </TouchableOpacity>
       </View>
     </DrawerContentScrollView>

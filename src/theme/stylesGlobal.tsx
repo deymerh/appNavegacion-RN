@@ -1,5 +1,8 @@
 import { StyleSheet } from "react-native";
 
+export const colors = {
+  primary: '#5856D6'
+}
 export const stylesGlobal = StyleSheet.create({
   globalMarginHorizontalPage: {
     paddingHorizontal: 10
@@ -10,5 +13,4 @@ export const stylesGlobal = StyleSheet.create({
     paddingVertical: 30,
     fontSize: 20
   }
-
 });
